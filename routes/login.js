@@ -9,6 +9,7 @@ function loginApi(app) {
 
     router.post("/", async function (req, res, next) {
         const { body: user } = req;
+        console.log("Datos: ", user );
         try {
             const usr = await loginService.getUser(user.mail);
             if (usr.mail === user.mail && usr.password === user.pass && usr.status === true) {
